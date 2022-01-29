@@ -10,8 +10,8 @@ module Deta
       @adapter = adapter
     end
 
-    def base(base_db = nil)
-      BaseResource.new(self, base_db)
+    def base(base_name = nil)
+      BaseResource.new(self, base_name)
     end
 
     def connection

@@ -1,10 +1,10 @@
 module Deta
   class Resource
-    attr_reader :client, :base_db
+    attr_reader :client, :base_name
 
-    def initialize(client, base_db)
+    def initialize(client, base_name)
       @client = client
-      @base_db = base_db
+      @base_name = base_name
     end
 
     private
