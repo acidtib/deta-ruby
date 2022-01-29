@@ -44,7 +44,7 @@ put = detabase.put({name: "Mike Jones", age: 31, hometown: "Denver"})
 put.processed.items.first.key
 
 # multi items
-puts = detabase.put({name: "Mike Jones", age: 31, hometown: "Denver"}, {name: "Mike Dow", age: 25, hometown: "Miami"})
+puts = detabase.put([{name: "Mike Jones", age: 31, hometown: "Denver"}, {name: "Mike Dow", age: 25, hometown: "Miami"}])
 puts.processed
 ```
 
