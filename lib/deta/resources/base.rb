@@ -1,17 +1,19 @@
 module Deta
   class BaseResource < Resource
+    @@api_url = "https://database.deta.sh/v1"
+
     def put(*attributes)
       items = {items: attributes}
       
-      BaseObject.new put_request([base_url, client.project_id, base_name, "items"].join("/"), body: items).body
+      BaseObject.new put_request([@@api_url, client.project_id, resource_name, "items"].join("/"), body: items).body
     end
 
     def get(key = nil)
-      BaseObject.new get_request([base_url, client.project_id, base_name, "items", key].join("/")).body
+      BaseObject.new get_request([@@api_url, client.project_id, resource_name, "items", key].join("/")).body
     end
 
     def delete(key = nil)
-      BaseObject.new delete_request([base_url, client.project_id, base_name, "items", key].join("/")).body
+      BaseObject.new delete_request([@@api_url, client.project_id, resource_name, "items", key].join("/")).body
     end
 
     def insert(*attributes)
@@ -26,7 +28,7 @@ module Deta
       request[:prepend] = prepend if prepend
       request[:delete] = delete if delete
       
-      BaseObject.new patch_request([base_url, client.project_id, base_name, "items", key].join("/"), body: request).body
+      BaseObject.new patch_request([@@api_url, client.project_id, resource_name, "items", key].join("/"), body: request).body
     end
 
     def query(query: nil, limit: nil, last: nil)
