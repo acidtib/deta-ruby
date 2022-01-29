@@ -1,10 +1,13 @@
 module Deta
   class Resource
-    attr_reader :client, :base_name
+    attr_reader :client, :base_name, :base_url, :drive_url
 
     def initialize(client, base_name)
       @client = client
       @base_name = base_name
+
+      @base_url = "https://database.deta.sh/v1"
+      @drive_url = "https://drive.deta.sh/v1"
     end
 
     private

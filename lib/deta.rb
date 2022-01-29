@@ -11,6 +11,8 @@ module Deta
   autoload :Object, "deta/object"
 
   autoload :BaseResource, "deta/resources/base"
+  autoload :DriveResource, "deta/resources/drive"
 
   autoload :BaseObject, "deta/objects/base"
+  autoload :DriveObject, "deta/objects/drive"
 end

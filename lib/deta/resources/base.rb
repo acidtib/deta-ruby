@@ -3,7 +3,19 @@ module Deta
     def put(*attributes)
       items = {items: attributes}
       
-      BaseObject.new put_request("#{client.project_id}/#{base_name}/items", body: items).body
+      BaseObject.new put_request([base_url, client.project_id, base_name, "items"].join("/"), body: items).body
+    end
+
+    def get(key = nil)
+      BaseObject.new get_request([base_url, client.project_id, base_name, "items", key].join("/")).body
+    end
+
+    def delete(key = nil)
+      BaseObject.new delete_request([base_url, client.project_id, base_name, "items", key].join("/")).body
+    end
+
+    def insert(*attributes)
+      return ":)"
     end
 
     def update(key = nil, set: nil, increment: nil, append: nil, prepend: nil, delete: nil)
@@ -13,16 +25,12 @@ module Deta
       request[:append] = append if append
       request[:prepend] = prepend if prepend
       request[:delete] = delete if delete
-
-      BaseObject.new patch_request("#{client.project_id}/#{base_name}/items/#{key}", body: request).body
+      
+      BaseObject.new patch_request([base_url, client.project_id, base_name, "items", key].join("/"), body: request).body
     end
 
-    def get(key = nil)
-      BaseObject.new get_request("#{client.project_id}/#{base_name}/items/#{key}").body
-    end
-
-    def delete(key = nil)
-      BaseObject.new delete_request("#{client.project_id}/#{base_name}/items/#{key}").body
+    def query(query: nil, limit: nil, last: nil)
+      return ":)"
     end
   end
 end
