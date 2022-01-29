@@ -2,9 +2,14 @@ module Deta
   class BaseResource < Resource
     @@api_url = "https://database.deta.sh/v1"
 
-    def put(*attributes)
-      items = {items: attributes}
-      
+    def put(attributes)
+      items = {}
+      if attributes.is_a?(Array)
+        items["items"] = attributes
+      else
+        items["items"] = [attributes]
+      end
+
       BaseObject.new put_request([@@api_url, client.project_id, resource_name, "items"].join("/"), body: items).body
     end
 
