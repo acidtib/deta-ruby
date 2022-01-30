@@ -10,6 +10,11 @@ Add this line to your application's Gemfile:
 gem 'deta'
 ```
 
+or grab it from Github
+```ruby
+gem 'deta', github: "arubinofaux/deta-ruby"
+```
+
 And then execute:
 
     $ bundle install
@@ -63,7 +68,10 @@ detabase.delete(key)
 ### Insert Item
 
 ```ruby
-TODO:
+detabase.insert(name: "Mike Jones", age: 31, hometown: "Denver")
+
+# specify the key
+detabase.insert(key: "ab5tsstc9bh8", name: "Mike Jones", age: 31, hometown: "Denver")
 ```
 
 ### Update Item

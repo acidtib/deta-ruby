@@ -21,8 +21,9 @@ module Deta
       BaseObject.new delete_request([@@api_url, client.project_id, resource_name, "items", key].join("/")).body
     end
 
-    def insert(*attributes)
-      return ":)"
+    def insert(**attributes)
+      item = {item: attributes}
+      BaseObject.new post_request([@@api_url, client.project_id, resource_name, "items"].join("/"), body: item).body
     end
 
     def update(key = nil, set: nil, increment: nil, append: nil, prepend: nil, delete: nil)
