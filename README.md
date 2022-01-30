@@ -1,4 +1,5 @@
 # Deta-Ruby
+[![Gem Version](https://badge.fury.io/rb/deta.svg)](https://badge.fury.io/rb/deta)
 
 deta-ruby is an unofficial Deta Gem for Ruby
 
