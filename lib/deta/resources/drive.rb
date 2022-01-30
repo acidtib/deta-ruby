@@ -2,6 +2,13 @@ module Deta
   class DriveResource < Resource
     @@api_url = "https://drive.deta.sh/v1"
 
+    def get(name = nil)
+      params = {}
+      params[:name] = name if name
+
+      get_request([@@api_url, client.project_id, resource_name, "files", "download"].join("/"), params: params).body
+    end
+
     def list(limit: nil, prefix: nil, last: nil)
       params = {}
       params[:limit] = limit if limit

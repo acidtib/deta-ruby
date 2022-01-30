@@ -101,6 +101,12 @@ detadrive = client.drive("drive_name")
 detadrive.list(limit: 1, prefix: "avatar")
 ```
 
+### Get File
+
+```ruby
+detadrive.get("image0.jpg")
+```
+
 ### Delete Files
 
 ```ruby
