@@ -2,6 +2,23 @@ module Deta
   class DriveResource < Resource
     @@api_url = "https://drive.deta.sh/v1"
 
+    def put(name = nil, path: nil, data: nil, content_type: "application/octet-stream")
+      payload = nil
+      headers = {"Content-Type": content_type}
+      
+      if path
+        payload = Faraday::Multipart::FilePart.new(path, content_type, name)
+        headers["Content-Length"] = payload.size.to_s
+      end
+
+      if data
+        headers["Content-Length"] = data.size.to_s
+        payload = data 
+      end
+      
+      DriveObject.new post_request([@@api_url, client.project_id, resource_name, "files?name=#{name}"].join("/"), body: payload, headers: headers).body
+    end
+
     def get(name = nil)
       params = {}
       params[:name] = name if name

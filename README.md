@@ -95,6 +95,16 @@ detabase.fetch(query: [{hometown: "Boulder"}], limit: 1, last: "8523bdyxlqww")
 detadrive = client.drive("drive_name")
 ```
 
+### Put File
+
+```ruby
+detadrive.put("test.jpg", path: "./test.jpg", content_type: "image/jpeg")
+
+detadrive.put("test.txt", data: "hello")
+
+detadrive.put("test.json", data: {a: 1}.to_json)
+```
+
 ### List Files
 
 ```ruby
