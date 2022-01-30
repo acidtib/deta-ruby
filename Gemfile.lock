@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    deta (0.1.1)
+    deta (0.1.2)
       faraday (~> 2.1.0)
       faraday-multipart (~> 1.0.3)
 
