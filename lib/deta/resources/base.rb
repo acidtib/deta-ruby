@@ -37,8 +37,17 @@ module Deta
       BaseObject.new patch_request([@@api_url, client.project_id, resource_name, "items", key].join("/"), body: request).body
     end
 
-    def query(query: nil, limit: nil, last: nil)
-      return ":)"
+    def fetch(query: nil, limit: nil, last: nil)
+      request = {}
+      request[:limit] = limit
+      request[:last] = last
+      if query.is_a?(Array)
+        request[:query] = query
+      else
+        request[:query] = [query]
+      end
+
+      BaseObject.new post_request([@@api_url, client.project_id, resource_name, "query"].join("/"), body: request).body
     end
   end
 end

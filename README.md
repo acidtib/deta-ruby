@@ -83,7 +83,10 @@ detabase.update(key, set: {hometown: "Miami"})
 ### Query Items
 
 ```ruby
-TODO:
+detabase.fetch(query: {hometown: "Denver"})
+detabase.fetch(query: [{hometown: "Boulder"}, {"age?lt": 33}])
+
+detabase.fetch(query: [{hometown: "Boulder"}], limit: 1, last: "8523bdyxlqww")
 ```
 
 ## Drive
