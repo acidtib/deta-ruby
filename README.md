@@ -101,6 +101,16 @@ detadrive = client.drive("drive_name")
 detadrive.list(limit: 1, prefix: "avatar")
 ```
 
+### Delete Files
+
+```ruby
+# single delete
+detadrive.delete("image0.jpg")
+
+# multi delete
+detadrive.delete(["image1.jpg", "image2.jpg"])
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

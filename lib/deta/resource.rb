@@ -29,6 +29,10 @@ module Deta
         handle_response client.connection.delete(url, params, headers)
       end
 
+      def delete_request_with_body(url, body:, headers: {})
+        handle_response client.connection.run_request(:delete, url, body, headers)
+      end
+
       def handle_response(response)
         case response.status
         when 400

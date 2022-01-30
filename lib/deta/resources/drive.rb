@@ -8,7 +8,18 @@ module Deta
       params[:prefix] = prefix if prefix
       params[:last] = last if last
 
-      BaseObject.new get_request([@@api_url, client.project_id, resource_name, "files"].join("/"), params: params).body
+      DriveObject.new get_request([@@api_url, client.project_id, resource_name, "files"].join("/"), params: params).body
+    end
+
+    def delete(attributes)
+      params = {}
+      if attributes.is_a?(Array)
+        params[:names] = attributes
+      else
+        params[:names] = [attributes]
+      end
+
+      DriveObject.new delete_request_with_body([@@api_url, client.project_id, resource_name, "files"].join("/"), body: params).body
     end
   end
 end
