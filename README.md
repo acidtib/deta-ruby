@@ -91,7 +91,15 @@ detabase.fetch(query: [{hometown: "Boulder"}], limit: 1, last: "8523bdyxlqww")
 
 ## Drive
 
-`TODO:`
+```ruby
+detadrive = client.drive("drive_name")
+```
+
+### List Files
+
+```ruby
+detadrive.list(limit: 1, prefix: "avatar")
+```
 
 ## Development
 
