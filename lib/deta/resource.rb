@@ -21,6 +21,10 @@ module Deta
         handle_response client.connection.patch(url, body, headers)
       end
 
+      def post_request(url, body:, headers: {})
+        handle_response client.connection.post(url, body, headers)
+      end
+
       def delete_request(url, params: {}, headers: {})
         handle_response client.connection.delete(url, params, headers)
       end
@@ -40,7 +44,6 @@ module Deta
         when 500
           raise Error, "We were unable to perform the request due to server-side problems. #{response.body["errors"]}"
         end
-  
         response
       end
   end
